@@ -1,29 +1,28 @@
-name: Eslint checks
+name: ESLint Check
 
 on:
-    push:
-        branches:
-            -main
-        pull_request:
-        branches: 
-        -main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
-    eslint:
-        runs-on: ubuntu-latest
+  eslint:
+    runs-on: ubuntu-latest
 
     steps:
-        -name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v2
 
-
-        -name: setup node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-            node-version: 14
-        
-        -name: install dependencies
+          node-version: 14 # You can adjust the Node.js version
+
+      - name: Install dependencies
         run: npm install
-        -name: Run Eslint
-        run: npm run lint
 
-
+      - name: Run ESLint
+        run: npm run lint # Replace with your ESLint command
